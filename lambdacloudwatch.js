@@ -15,13 +15,11 @@
 // pulling some libraries like a boss
 // need to npm install awk-sdk
 // test message won't work without specific creds.
-var fs = require("fs");
 var AWS = require("aws-sdk");
 AWS.config.region = 'eu-central-1';
 
 // test message won't work without specific creds.
-var contents = fs.readFileSync("test-messages.json");
-var jsonContent = JSON.parse(contents);
+var jsonContent = require("./test-messages.json");
 var instanceId = jsonContent.detail["instance-id"]
 
 var ec2 = new AWS.EC2();
